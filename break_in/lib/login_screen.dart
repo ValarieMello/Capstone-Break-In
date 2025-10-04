@@ -3,6 +3,22 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:go_router/go_router.dart';
 
+/*
+how this page is going to work/look it is going to have a weekly schedule at the top
+then it will show the whole day outlined
+then the bottom bar will have a home, a giant plus, full calendar button
+
+if you click on an event inside the whole day it will pop up and show you all the details of that event
+
+if you hit that big plus it will have a box pop up with two options
+1: add a connection link to add in info
+2: edit your schedule link to page to edit your schedule
+
+If you click the house it will reset to the current day
+
+if you click the full calendar it will link you to the full calendar for the "month"
+*/
+
 
 class LoginPage extends StatefulWidget {
   const LoginPage({ super.key, required this.title });
@@ -20,6 +36,7 @@ class _LoginPageState extends State<LoginPage> {
 
   String _exception = '';
 
+  //added in the debugging from a chatgpt suggestion. helped me find the error.
   Future<void> _login() async {
   if (_formKey.currentState!.validate()) {
     final email = _emailController.text.trim();
@@ -69,6 +86,12 @@ class _LoginPageState extends State<LoginPage> {
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
+        actions: [
+        IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () => context.go('/startscreen'),
+            ),
+          ],
       ),
       body: Center(
         child: Column(

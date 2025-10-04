@@ -1,3 +1,7 @@
+//This is the first intial page where you create your user account.
+//This page collects the user's new email and new password.
+//it will then navigate to a add info page.
+
 import 'dart:async';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -33,7 +37,7 @@ class _CreateUserState extends State<CreateUser> {
           }
         });
         if(mounted){
-          context.go('/home');
+          context.go('/createprofile');
         }
       } on FirebaseAuthException catch(e) {
         String ex = 'Authentication Exception: ';
@@ -57,6 +61,12 @@ class _CreateUserState extends State<CreateUser> {
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
+        actions: [
+        IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () => context.go('/startscreen'),
+            ),
+          ],
       ),
       body: Center(
         child: Column(

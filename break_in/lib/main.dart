@@ -9,6 +9,7 @@ import 'starter_screen.dart';
 import 'home_screen.dart';
 import 'login_screen.dart';
 import 'register_screen.dart';
+import 'create_profile.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -41,6 +42,10 @@ class BreakInApp extends StatelessWidget {
         GoRoute(
           path: '/register',
           builder: (context, state) => const CreateUser(title: 'Create User',),
+        ),
+        GoRoute(
+          path: '/createprofile',
+          builder: (context, state) => const CreateProfile(),
         ),
       ],
     );
