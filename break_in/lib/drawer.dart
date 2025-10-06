@@ -42,7 +42,21 @@ class MyDrawer extends StatelessWidget {
             },
           ),
           //ListTile(
-          // title: const Text('Search'),
+          // title: const Text('Add/Find Event'),
+          //  onTap: () {
+          //    // Update the state of the app.
+          //    currentPage == 3 ? Navigator.pop(context) : context.go('/search');
+          //  },
+         //  ),
+                   //ListTile(
+          // title: const Text('Connections'),
+          //  onTap: () {
+          //    // Update the state of the app.
+          //    currentPage == 3 ? Navigator.pop(context) : context.go('/search');
+          //  },
+         //  ),
+                   //ListTile(
+          // title: const Text('Logout'),
           //  onTap: () {
           //    // Update the state of the app.
           //    currentPage == 3 ? Navigator.pop(context) : context.go('/search');

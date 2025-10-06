@@ -36,6 +36,7 @@ class _LoginPageState extends State<LoginPage> {
 
   String _exception = '';
 
+  //function for logging us in
   //added in the debugging from a chatgpt suggestion. helped me find the error.
   Future<void> _login() async {
   if (_formKey.currentState!.validate()) {
@@ -50,6 +51,7 @@ class _LoginPageState extends State<LoginPage> {
 
       print('✅ Login success! ${userCredential.user?.email}');
 
+      //if the login is succeful take the user to the homepage
       if (mounted) {
         context.go('/home');
       }
@@ -105,8 +107,9 @@ class _LoginPageState extends State<LoginPage> {
                   ? const SizedBox.shrink()
                   : Text(
                     _exception,
-                    style: const TextStyle(color: Colors.red),
+                    style: const TextStyle(color: Color.fromARGB(255, 119, 0, 194)),
                   ),
+                  //take in email info
                   TextFormField(
                     controller: _emailController,
                     decoration: const InputDecoration(
@@ -120,6 +123,7 @@ class _LoginPageState extends State<LoginPage> {
                       return null;
                     }
                   ),
+                  //take in password
                   TextFormField(
                     controller: _passwordController,
                     obscureText: true,
@@ -136,6 +140,7 @@ class _LoginPageState extends State<LoginPage> {
                       return null;
                     }
                   ),
+                  //login button
                   ElevatedButton(
                     onPressed: _login,
                     child: const Text('Login'),

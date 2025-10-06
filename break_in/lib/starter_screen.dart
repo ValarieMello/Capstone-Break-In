@@ -18,10 +18,12 @@ class StartScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            //Sign up for a new account
             ElevatedButton(
               onPressed: () => context.go('/register'),
               child: const Text('Create Account'),
             ),
+            //login with exisiting account
             ElevatedButton(
               onPressed: () => context.go('/login'),
               child: const Text('Login'),

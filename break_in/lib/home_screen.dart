@@ -1,6 +1,8 @@
 //willbecome the homescreen of the app.
 
 import 'package:flutter/material.dart';
+import 'package:syncfusion_flutter_calendar/calendar.dart';
+import 'drawer.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
