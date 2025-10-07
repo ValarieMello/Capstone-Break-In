@@ -1,20 +1,22 @@
-import 'package:break_in/home_screen.dart';
-import 'package:break_in/profile.dart';
-import 'package:break_in/starter_screen.dart';
+//main file
+//contains all of my go router features and other backbones
+
+//flutter packages/not my files
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:go_router/go_router.dart';
-
 import 'firebase_options.dart';
+
+//All my files that are used in routing
 import 'starter_screen.dart';
 import 'home_screen.dart';
 import 'login_screen.dart';
 import 'register_screen.dart';
 import 'create_profile.dart';
-import 'drawer.dart';
 import 'maincal.dart';
 import 'connections.dart';
 import 'findevents.dart';
+import 'profile.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -26,6 +28,7 @@ void main() async {
 
 class BreakInApp extends StatelessWidget {
   const BreakInApp({super.key});
+
 
   @override
   Widget build(BuildContext context) {
