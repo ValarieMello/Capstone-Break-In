@@ -8,11 +8,23 @@ This will need to have a link to your profile, find/add an event, connections (w
 
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+
+//set up constant values for readiblity in navigation
+enum PageType {
+  home,
+  profile,
+  connections,
+  calendar,
+  findEvents,
+  logout
+}
 
 class MyDrawer extends StatelessWidget {
-  const MyDrawer({super.key, required this.currentPage});
 
-  final int currentPage;
+  //require that you use the page type for each page to be able to navigate
+  final PageType currentPage;
+  const MyDrawer({super.key, required this.currentPage});
 
   @override
   Widget build(BuildContext context) {
@@ -28,45 +40,76 @@ class MyDrawer extends StatelessWidget {
             child: Text('Drawer Header'),
           ),
           ListTile(
-            title: const Text('Home'),
+            leading: Icon(Icons.home),
+            title: Text('Home'),
             onTap: () {
-              // Update the state of the app.
-              currentPage == 1 ? Navigator.pop(context) : context.go('/home');
+              currentPage == PageType.home
+                  ? Navigator.pop(context)
+                  : context.go('/home');
             },
           ),
           ListTile(
-            title: const Text('Profile'),
+            leading: Icon(Icons.person),
+            title: Text('Profile'),
             onTap: () {
-              // Update the state of the app.
-              currentPage == 2 ? Navigator.pop(context) : context.go('/profile');
+              currentPage == PageType.profile
+                  ? Navigator.pop(context)
+                  : context.go('/profile');
             },
           ),
-          //ListTile(
-          // title: const Text('Add/Find Event'),
-          //  onTap: () {
-          //    // Update the state of the app.
-          //    currentPage == 3 ? Navigator.pop(context) : context.go('/search');
-          //  },
-         //  ),
-                   //ListTile(
-          // title: const Text('Connections'),
-          //  onTap: () {
-          //    // Update the state of the app.
-          //    currentPage == 3 ? Navigator.pop(context) : context.go('/search');
-          //  },
-         //  ),
-                   //ListTile(
-          // title: const Text('Logout'),
-          //  onTap: () {
-          //    // Update the state of the app.
-          //    currentPage == 3 ? Navigator.pop(context) : context.go('/search');
-          //  },
-         //  ),
-          ListTile(
-            title: const Text('Help'),
+            ListTile(
+            title: Text('Connections'),
             onTap: () {
-              // Update the state of the app.
-              currentPage == 4 ? Navigator.pop(context) : context.go('/help');
+              currentPage == PageType.connections
+                  ? Navigator.pop(context)
+                  : context.go('/connections');
+            },
+          ),
+          ListTile(
+            title: Text('Calendar'),
+            onTap: () {
+              currentPage == PageType.calendar
+                  ? Navigator.pop(context)
+                  : context.go('/calendar');
+            },
+          ),
+          ListTile(
+            title: Text('Find Event'),
+            onTap: () {
+              currentPage == PageType.findEvents
+                  ? Navigator.pop(context)
+                  : context.go('/findEvents');
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.logout),
+            title: Text('Logout'),
+            onTap: () async {
+              final confirmed = await showDialog<bool>(
+                context: context,
+                builder: (context) => AlertDialog(
+                  title: Text('Log out?'),
+                  content: Text('Are you sure you want to log out?'),
+                  actions: [
+                    TextButton(
+                      onPressed: () => Navigator.pop(context, false),
+                      child: Text('Cancel'),
+                    ),
+                    TextButton(
+                      onPressed: () => Navigator.pop(context, true),
+                      child: Text('Log out'),
+                    ),
+                  ],
+                ),
+              );
+
+              if (confirmed == true) {
+                // Firebase example
+                await FirebaseAuth.instance.signOut();
+
+                // Navigate to login screen
+                context.go('/startscreen');
+              }
             },
           ),
         ],

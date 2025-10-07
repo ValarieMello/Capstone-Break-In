@@ -1,4 +1,5 @@
 import 'package:break_in/home_screen.dart';
+import 'package:break_in/profile.dart';
 import 'package:break_in/starter_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -10,6 +11,10 @@ import 'home_screen.dart';
 import 'login_screen.dart';
 import 'register_screen.dart';
 import 'create_profile.dart';
+import 'drawer.dart';
+import 'maincal.dart';
+import 'connections.dart';
+import 'findevents.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -46,6 +51,22 @@ class BreakInApp extends StatelessWidget {
         GoRoute(
           path: '/createprofile',
           builder: (context, state) => const CreateProfile(),
+        ),
+        GoRoute(
+          path: '/profile',
+          builder: (context, state) => const ProfilePage(),
+        ),
+        GoRoute(
+          path: '/connections',
+          builder: (context, state) => const ConnectionsPage(),
+        ),
+        GoRoute(
+          path: '/calendar',
+          builder: (context, state) => const CalendarPage(),
+        ),
+        GoRoute(
+          path: '/findevents',
+          builder: (context, state) => const FindEventsPage(),
         ),
       ],
     );

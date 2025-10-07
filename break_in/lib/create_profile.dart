@@ -1,4 +1,4 @@
-//Collect intial profile information.
+//Collect intial profile information which is saved to firebase profile
 
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';

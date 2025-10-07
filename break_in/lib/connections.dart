@@ -14,8 +14,8 @@ company info if you want to add it
 import 'package:flutter/material.dart';
 import 'drawer.dart';
 
-class CalendarPage extends StatelessWidget {
-  const CalendarPage({super.key});
+class ConnectionsPage extends StatelessWidget {
+  const ConnectionsPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +23,7 @@ class CalendarPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Calendar'),
       ),
-      drawer: const MyDrawer(currentPage: PageType.calendar),
+      drawer: const MyDrawer(currentPage: PageType.connections),
       body: const Center(
         child: Text(
           'Profile Page Placeholder',
