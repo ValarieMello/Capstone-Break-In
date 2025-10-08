@@ -104,10 +104,10 @@ class MyDrawer extends StatelessWidget {
               );
 
               if (confirmed == true) {
-                // Firebase example
+                //firebase signout function
                 await FirebaseAuth.instance.signOut();
 
-                // Navigate to login screen
+                //takes you to the startscreen after logging out
                 context.go('/startscreen');
               }
             },

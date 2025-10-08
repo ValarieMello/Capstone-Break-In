@@ -1,9 +1,10 @@
+//This is the login page
+
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:go_router/go_router.dart';
 
-//this is the login page
 class LoginPage extends StatefulWidget {
   const LoginPage({ super.key, required this.title });
 
@@ -21,7 +22,7 @@ class _LoginPageState extends State<LoginPage> {
   String _exception = '';
 
   //function for logging us in
-  //added in the debugging from a chatgpt suggestion. helped me find the error.
+  //added in the debugging from a chatgpt suggestion. helped me find the error with firebase.
   Future<void> _login() async {
   if (_formKey.currentState!.validate()) {
     final email = _emailController.text.trim();
@@ -69,6 +70,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      //app bar holds the title
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
@@ -79,6 +81,7 @@ class _LoginPageState extends State<LoginPage> {
             ),
           ],
       ),
+      //Main Body of our App
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

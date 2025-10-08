@@ -25,6 +25,9 @@ class _CreateUserState extends State<CreateUser> {
 
   String _exception = '';
 
+  //Debugging and stucture based on notes from web and Mobile app dev course
+  //Error handling also follows similar stucture from login error handling debugged from
+  //ChatGPT
   Future<void> _createAccount() async {
     if(_formKey.currentState!.validate()){
       try {

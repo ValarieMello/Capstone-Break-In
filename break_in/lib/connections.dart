@@ -26,7 +26,7 @@ class ConnectionsPage extends StatelessWidget {
       drawer: const MyDrawer(currentPage: PageType.connections),
       body: const Center(
         child: Text(
-          'Profile Page Placeholder',
+          'Connection Page Placeholder',
           style: TextStyle(fontSize: 24),
         ),
       ),

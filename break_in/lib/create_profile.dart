@@ -55,8 +55,9 @@ class _CreateProfileState extends State<CreateProfile> {
         'createdAt': FieldValue.serverTimestamp(),
       });
 
+      //if login sucessful
       if (mounted) {
-        context.go('/home'); // Or your next destination
+        context.go('/home');
       }
     }
   }
